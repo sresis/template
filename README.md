@@ -1,7 +1,7 @@
 ## Instructions 
 - Clone repository
 ```
-$ git clone 'XXX INSERT LINK'
+$ git clone https://github.com/sresis/template.git
 ```
 
 In the current project directory:
