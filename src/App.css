@@ -101,6 +101,7 @@ button:hover {
 
 button:focus {
   outline:0;
+  background-color: #1589FF;
 }
 #player {
 display: flex;
@@ -137,6 +138,20 @@ margin-top: 100px;
   margin-right: 30px;
 
 }
-#patient-col tr:first-child { 
-  color: red; 
+#patient-col> div:first-of-type { 
+  background-color: #1589FF;
+  color: white; 
 }
+#num-col> div:first-of-type { 
+  background-color: #1589FF;
+  color: white; 
+}
+#time-col> div:first-of-type { 
+  background-color: #1589FF;
+  color: white; 
+}
+#kind-col> div:first-of-type { 
+  background-color: #1589FF;
+  color: white; 
+}
+

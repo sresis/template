@@ -1,6 +1,6 @@
 
 import './App.css';
-import UserInput from './Form.js';
+import DoctorInput from './Form.js';
 
 import React, {useState} from 'react';
 
@@ -40,7 +40,7 @@ function App() {
       </>
     </ThemeProvider>
       <div>
-        <UserInput />
+        <DoctorInput />
       </div>
     </div>
   );
