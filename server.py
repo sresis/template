@@ -21,6 +21,19 @@ def homepage():
     """Show homepage."""
 
     return render_template('index.html')
+@app.route('/api/form', methods=['POST'])
+def handle_form():
+    """Handles the form."""
+    user_input = request.get_json()
+    name = user_input['name']
+    if name == 'Steph':
+        return jsonify({'name_status': 'steph'})
+    elif name == '':
+        return jsonify({'name_status': ''})
+
+    else:
+        return jsonify({'name_status': 'random'})
+
 
 
 
