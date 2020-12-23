@@ -1,0 +1,45 @@
+[
+    {
+        "Patient": "Sterling Archer", 
+        "Appt_Date": "2020-12-23",
+        "Doctor": "Hibbert, Julius",
+        "Kind": "New Patient",
+        "Appt_Time": "08:00"
+    },
+    {
+        "Patient": "Cyril Figus", 
+        "Appt_Date": "2020-12-23",
+        "Doctor": "Hibbert, Julius",
+        "Kind": "Follow-Up",
+        "Appt_Time": "08:30"
+    },
+    {
+        "Patient": "Ray Gillette", 
+        "Appt_Date": "2020-12-23",
+        "Doctor": "Hibbert, Julius",
+        "Kind": "Follow-Up",
+        "Appt_Time": "09:00"
+    },
+    {
+        "Patient": "Jessica Jenkins", 
+        "Appt_Date": "2020-12-23",
+        "Doctor": "Krieger, Algernop",
+        "Kind": "Follow-Up",
+        "Appt_Time": "11:30"
+    },
+    {
+        "Patient": "Emily Smith", 
+        "Appt_Date": "2020-12-28",
+        "Doctor": "Hibbert, Julius",
+        "Kind": "New Patient",
+        "Appt_Time": "10:30"
+    },
+    {
+        "Patient": "Adam Jones", 
+        "Appt_Date": "2020-12-23",
+        "Doctor": "Riviera, Nick",
+        "Kind": "New Patient",
+        "Appt_Time": "08:00"
+    }
+   
+]
