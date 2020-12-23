@@ -1,19 +1,22 @@
 import React, {useState} from "react";
 import {Button, Alert, Col, Row, Card, CardColumns, CardGroup, Container, Collapse, 
 	Form, FormControl, Nav, Navbar, Spinner, Popover } from "react-bootstrap";
-import HandleForm from './handleForm.js';
-function UserInput(props) {
+function DoctorInput(props) {
   const [name, setName] = useState('');
-  const [nameStatus, setNameStatus] = useState('');
-  
+  const [patients, setPatients] = useState('');
+  const [times, setTimes] = useState('');
+  const [kinds, setKinds] = useState('');
+  const [count, setCount] = useState('');
+
   const handleInput = (evt) => {
-    const name_input = {'name': name}
+    const doctor_input = {'name': evt.target.value}
+    console.log(doctor_input);
+    console.log(evt.target.value);
     evt.preventDefault();
-    setNameStatus('');
     
-    fetch('/api/form', {
+    fetch('/api/get-patients', {
 			method: 'POST',
-			body: JSON.stringify(name_input),
+			body: JSON.stringify(doctor_input),
 			headers: {
 				'Content-Type': 'application/json'
 			},
@@ -21,27 +24,67 @@ function UserInput(props) {
 		})
 		.then(res => res.json())
 		.then(data => {
-      setNameStatus(data.name_status);
-    })
-    console.log(nameStatus);
+      const all_patients = [];
+      const all_times = [];
+      const all_kinds = [];
+      const all_counts = [];
+      var curr_count = 0;
+      for (const row of data) {
+        all_patients.push(
+          <div>{row.Patient}</div>
+          );
+        all_times.push(
+          <div>{row.Appt_Time}</div>
+          );
+        all_kinds.push(
+          <div>{row.Kind}</div>
+          );
+        curr_count += 1;
+        all_counts.push(
+          <div>{curr_count}</div>
+          );
 
+      }
+      setPatients(all_patients);
+      setTimes(all_times);
+      setKinds(all_kinds);
+      setCount(all_counts);
+    })
   } 
   return (
-    <Container fluid="md" id="user-input">
-        <Form>
-            <h3>Enter Input</h3>
-        <Form.Group controlid="createFName">
-            <Form.Label>First Name</Form.Label>
-            <Form.Control type="text" placeholder="First Name"
-                            onChange= {e => setName(e.target.value)}
-                            value={name}/>
-        </Form.Group>
-        <button type="submit" onClick={handleInput}>submit</button>
+    <Container fluid="md" id="app-container">
+        <Form id="doctor-input">
+          <h3>Physicians</h3>
+          <div>
+            <Button value="Hibbert, Julius" onClick={handleInput}>Hibbert, Julius</Button>
+
+          </div>
+          <div>
+            <Button value="Krieger, Algernop" onClick={handleInput}>Krieger, Algernop</Button>
+          </div>
+          
+          <Button value="Riviera, Nick" onClick={handleInput}>Riviera, Nick</Button>
         </Form>
-        <HandleForm input={nameStatus} />
+        <div id="schedule">
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gridGap: 20 }}>
+            <div id="num-col">#
+              { count }
+            </div>
+            <div id="patient-col">Name
+              { patients }
+            </div>
+            <div id="time-col">Time
+              { times }
+            </div>
+            <div id="kind-col">Kind
+              { kinds }
+            </div>
+            </div>
+        </div>
+        
 
     </Container>
     );
 }
 
-export default UserInput
+export default DoctorInput;

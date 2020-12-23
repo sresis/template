@@ -1,11 +1,12 @@
 from flask import (Flask, render_template, jsonify, redirect, request)
-
-
+import json
+import datetime
 # instantiate Flask class
 app = Flask(__name__, static_folder='build',
                       template_folder='build',
                       static_url_path = '/')
 
+FILE = 'src/patients.json'
 
 
 # catch all
@@ -21,6 +22,7 @@ def homepage():
     """Show homepage."""
 
     return render_template('index.html')
+
 @app.route('/api/form', methods=['POST'])
 def handle_form():
     """Handles the form."""
@@ -33,6 +35,26 @@ def handle_form():
 
     else:
         return jsonify({'name_status': 'random'})
+
+@app.route('/api/get-patients', methods=['POST'])
+def get_patients():
+    """Gets patients"""
+    doctor_input = request.get_json()
+    name = doctor_input['name']
+    # get the data
+    with open(FILE) as file:
+        data = json.load(file)
+    # check through file
+    
+    # make a dict of each patient and return it
+    matching_patients = []
+    for row in data:
+        if row['Doctor'] == name:
+            matching_patients.append(row)
+
+    return jsonify(matching_patients)
+    
+
 
 
 

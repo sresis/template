@@ -92,7 +92,7 @@ button{
   margin-top: 10px;
   border-radius: 5px; /* Adds curve to border corners */
   padding: 3px;
-  margin-bottom: 50px;
+  margin-bottom: 10px;
 }
 button:hover {
   background-color: #4C4B4B;
@@ -103,7 +103,7 @@ button:focus {
   outline:0;
 }
 #player {
-  display: flex;
+display: flex;
 flex-direction: column;
 align-items: center;
 margin-top: 100px;
@@ -120,9 +120,23 @@ margin-top: 100px;
   -webkit-transition: .2s; /* 0.2 seconds transition on hover */
   transition: opacity .2s;
 }
+#app-container {
+  margin-top: 50px;
+  overflow: auto;
+}
 #customCaro {
   margin-top: 40px;
 }
-div {
-  margin-top: 5px;
+#doctor-input {
+  float: left;
+  margin-left: 30px;
+
+}
+#schedule {
+  float: right;
+  margin-right: 30px;
+
+}
+#patient-col tr:first-child { 
+  color: red; 
 }

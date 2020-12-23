@@ -20,7 +20,6 @@ $ pip3 install -r requirements.txt
 
 You will need 2 terminal windows to run the app locally.
 - Tab 1: Run the server in virtual environment
-Run server in virtual environment
 ```
 $ source env/bin/activate
 $ python3 server.py

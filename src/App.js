@@ -1,6 +1,6 @@
 
 import './App.css';
-import UserInput from './form.js';
+import UserInput from './Form.js';
 
 import React, {useState} from 'react';
 
@@ -26,12 +26,12 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        App Name
+        Physician Schedules
       </header>
       <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
       <>
         <GlobalStyles />
-        <label class="switch">
+        <label className="switch">
           <input id="toggle-but" type="checkbox" onClick={toggleTheme}></input>
           <span className="slider round"></span>
       </label>
@@ -40,7 +40,6 @@ function App() {
       </>
     </ThemeProvider>
       <div>
-        hi
         <UserInput />
       </div>
     </div>
